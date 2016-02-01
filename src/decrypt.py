@@ -8,17 +8,17 @@ info += "\n-- and your plain text in \"plain.txt\"."
 info += "\n-- After you run the program your cipher text will be \"cipher.txt\"."
 
 def main():
-    if not os.path.isfile("key.txt") or not os.path.isfile("plain.txt"):
+    if not os.path.isfile("key.txt") or not os.path.isfile("cipher.txt"):
         print info
         sys.exit()
 
     fkey = open('key.txt', 'r')
-    finp = open('plain.txt', 'r')
-    fout = open('cipher.txt', 'w')
+    finp = open('cipher.txt', 'r')
+    fout = open('plain.txt', 'w')
 
     myKey = fkey.read()
     myMessage = finp.read()
-    myMode = 'encrypt' # set to 'encrypt' or 'decrypt'
+    myMode = 'decrypt' # set to 'encrypt' or 'decrypt'
 
     if myMode == 'encrypt':
         translated = encryptMessage(myKey, myMessage)
